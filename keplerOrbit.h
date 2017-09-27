@@ -1,7 +1,14 @@
 #ifndef _keplerOrbit_H_
 #define _keplerOrbit_H_
 
-#include "atFunctions.h"
+//#include "atFunctions.h"
+static const double DEG2RAD=0.017453292519943295769;
+static const double RAD2DEG=57.295779513082320877;
+typedef double AtVect[3];
+
+// for Kepler solver
+static const double EPS = 1e-15;
+static const int IMAX = 50;
 
 
 class KeplerOrbit {
@@ -22,6 +29,7 @@ class KeplerOrbit {
   static const int EPOCH_TYPE_P = 0;
   static const int EPOCH_TYPE_T = 1;
 
+  
  public:
   KeplerOrbit();
   virtual ~KeplerOrbit();

@@ -1,0 +1,14 @@
+name           , XTE J1946+274
+ra             , 0.0
+dec            , 0.0
+binary         , Y 	
+pbinary        , 172.0
+pbdot          , 0.000000 
+epoch_type     , P   	
+binaryepoch    , 5.551635e+04
+axsini         , 4.940550e+02
+periapse       , 2.778707e+02
+apsidalrate    , 0.000000 
+eccentricity   , 2.753571e-01
+egress         , 0.000000 
+ingress        , 1.000000

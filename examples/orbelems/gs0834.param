@@ -1,0 +1,19 @@
+name           , GS 0834-430
+ra             , 128.9792
+dec            , -43.185
+binary         , Y
+pbinary        , 105.8
+#pbinary        , 105.65
+pbdot          , 0.0
+### default
+#epoch_type     , T
+#binaryepoch    , 2448810.1
+epoch_type     , P
+binaryepoch    , 56130.02 
+axsini         , 202.
+periapse       , 164.    
+#periapse       , 110.
+apsidalrate    , 0.0
+eccentricity   , 0.1221
+egress         , 0.0
+ingress        , 1.0

@@ -1,0 +1,14 @@
+name           , EXO 2030+375
+ra             , 308.063333333
+dec            , 37.6375
+binary         , Y
+pbinary        , 46.0213
+pbdot          , 0.0
+epoch_type     , P
+binaryepoch    , 2452756.67
+axsini         , 246.0
+periapse       , 211.9
+apsidalrate    , 0.18
+eccentricity   , 0.41
+egress         , 0.0
+ingress        , 1.0

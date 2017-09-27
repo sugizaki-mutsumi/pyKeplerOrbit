@@ -1,0 +1,17 @@
+name           , GRO J1008-57
+ra             , 152.441667
+dec            , -58.292222
+binary         , Y
+pbinary        , 249.48
+pbdot          , 0.0
+epoch_type     , P
+#binaryepoch    , 2455173.65
+#binaryepoch    , 2455425.21
+binaryepoch    , 5.5417372549e+04
+axsini         , 4.3385229846e+02
+periapse       , 3.3050751072e+02
+apsidalrate    , 0.0
+eccentricity   , 0.70
+egress         , 0.0
+ingress        , 1.0
+

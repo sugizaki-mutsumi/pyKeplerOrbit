@@ -1,0 +1,14 @@
+name           , Her X-1
+ra             , 254.45714
+dec            , 35.34263
+binary         , Y
+pbinary        , 1.7001674461
+pbdot          , -4.93e-11
+epoch_type     , T
+binaryepoch    , 2449420.67347
+axsini         , 13.18549
+periapse       , 0.0
+apsidalrate    , 0.0
+eccentricity   , 0.0
+egress         , 0.0697
+ingress        , 0.9303

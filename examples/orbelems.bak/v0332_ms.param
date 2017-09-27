@@ -1,0 +1,14 @@
+name           , V 0332+53
+ra             , 53.7495416641
+dec            , 53.1732222223
+binary         , Y
+pbinary        , 3.3845546274e+01  
+pbdot          , 0.0
+epoch_type     , P
+binaryepoch    , 5.7225042043e+04  
+axsini         , 7.7161453918e+01  
+periapse       , 2.7751892574e+02  
+apsidalrate    , 0.0
+eccentricity   , 3.6670038068e-01  
+egress         , 0.0
+ingress        , 1.0

@@ -1,0 +1,15 @@
+name           , GX 304-1
+ra             , 195.32125
+dec            , -61.601833
+binary         , Y
+pbinary        , 132.189
+pbdot          , 0.0
+epoch_type     , P
+binaryepoch    , 55425.0200
+#binaryepoch    , 2455425.5200
+axsini         , 498.
+periapse       , 122.5
+apsidalrate    , 0.0
+eccentricity   , 0.524
+egress         , 0.0
+ingress        , 1.0

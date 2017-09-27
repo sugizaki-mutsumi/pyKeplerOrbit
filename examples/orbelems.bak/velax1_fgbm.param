@@ -1,0 +1,14 @@
+name           , Vela X-1
+ra             , 135.5286
+dec            , -40.5547
+binary         , Y
+pbinary        , 8.964368
+pbdot          , 0.0
+epoch_type     , T
+binaryepoch    , 2448895.7186
+axsini         , 113.89
+periapse       , 153.59
+apsidalrate    , 0.0
+eccentricity   , 0.0898
+egress         , 0.125
+ingress        , 0.92

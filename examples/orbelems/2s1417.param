@@ -1,0 +1,14 @@
+name           , 2S 1417-624
+ra             , 215.3
+dec            , -62.7
+binary         , Y
+pbinary        , 42.175
+pbdot          , 0.0
+epoch_type     , P
+binaryepoch    , 2451612.67
+axsini         , 188.0
+periapse       , 300.3
+apsidalrate    , 0.0
+eccentricity   , 0.446
+egress         , 0.0
+ingress        , 1.0

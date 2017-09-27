@@ -1,0 +1,15 @@
+name           , KS 1947+300
+ra             , 297.397875007
+dec            , 30.2088333331
+binary         , Y
+pbinary        , 4.0500254501e+01 
+pbdot          , 0.0
+#epoch_type     , P
+epoch_type     , T
+binaryepoch    , 5.6550544810e+04  
+axsini         , 1.3024224073e+02  
+periapse       , 5.7530064235e+01  
+apsidalrate    , 0.0
+eccentricity   , 8.2813643155e-03  
+egress         , 0.0
+ingress        , 1.0

@@ -4,7 +4,7 @@
 #include <cmath>
 #include <iostream>
 
-#include "atFunctions.h"
+//#include "atFunctions.h"
 
 #include "keplerOrbit.h"
 
@@ -53,10 +53,27 @@ int KeplerOrbit::setEpochTypeP(){
 
 
 double KeplerOrbit::getEccentricAnomaly(double mjd){
+
   double M, E;
+  //double g, e;
+
+  double error, deltae, d__1;
+  int i;
+  
   M = meanAnomaly(mjd);
+
   //E = getE(M, m_ecc);
-  atKepler(M, m_ecc, &E);
+  //atKepler(M, m_ecc, &E);
+  E = M;
+  if (M == 0.) return E;
+  for (i=0; i<IMAX; i++) {
+    deltae = (M - E + m_ecc * sin(E)) / (1. - m_ecc * cos(E));
+    E += deltae;
+    error = (d__1 = deltae / E, fabs(d__1));
+    if (error < EPS) break;
+  }
+
+  //return NOT_CONVERGED;
   return E;
 }
 

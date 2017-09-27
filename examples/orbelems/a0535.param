@@ -1,0 +1,14 @@
+name           , A 0535+26
+ra             , 84.7273833275
+dec            , 26.3157838885
+binary         , Y
+pbinary        , 111.1
+pbdot          , 0.0
+epoch_type     , P
+binaryepoch    , 2453613.5
+axsini         , 267.0
+periapse       , 130.0
+apsidalrate    , 0.0
+eccentricity   , 0.47
+egress         , 0.0
+ingress        , 1.0

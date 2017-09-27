@@ -1,0 +1,14 @@
+name           , Cen X-3
+ra             , 170.3133
+dec            , -60.6233
+binary         , Y
+pbinary        , 2.08699531
+pbdot          , -1.015e-08
+epoch_type     , T
+binaryepoch    , 2455073.68504
+axsini         , 39.6532
+periapse       , 0.0
+apsidalrate    , 0.0
+eccentricity   , 0.0
+egress         , 0.11
+ingress        , 0.89

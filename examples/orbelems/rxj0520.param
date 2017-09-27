@@ -1,0 +1,14 @@
+name           , RX J0520.5-6932
+ra             , 80.1287537495
+dec            , -69.5319441668
+binary         , Y
+pbinary        , 23.93
+pbdot          , 0.0
+epoch_type     , T
+binaryepoch    , 2456666.91
+axsini         , 107.6
+periapse       , 233.5
+apsidalrate    , 0.0
+eccentricity   , 0.0286
+egress         , 0.0
+ingress        , 1.0

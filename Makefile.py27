@@ -3,8 +3,11 @@ CXXSRCS    = keplerOrbit.cxx
 TARGET     = keplerOrbit
 INTERFACE  = keplerOrbit.i
 INTERFACEDIR = ./
-INCLUDES   = -I${HEADAS}/include
-LIBS       = -L${HEADAS}/lib -latFunctions -lcfitsio -lm 
+INCLUDES   =
+LIBS       = -lm
+
+#INCLUDES   = -I${HEADAS}/include
+#LIBS       = -L${HEADAS}/lib -latFunctions -lcfitsio -m
 
 INTERFACEPATH = $(INTERFACEDIR)$(INTERFACE)
 

@@ -1,0 +1,14 @@
+name           , 4U 1538-52
+ra             , 235.59708333
+dec            , -52.3861111111
+binary         , Y
+pbinary        , 3.7283749
+pbdot          , 0.0
+epoch_type     , T
+binaryepoch    , 2451442.489
+axsini         , 56.6
+periapse       , 64.0
+apsidalrate    , 0.0
+eccentricity   , 0.174
+egress         , 0.078
+ingress        , 0.922
