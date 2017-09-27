@@ -54,10 +54,17 @@ if __name__=="__main__" :
     #    ]
     #line
     linestyle_list = [
-        "solid", "dotted",
+        "solid", "dotted", "dashed",
         ]
 
     parfname_list = [
+        #"orbelems/herx1.param",
+        #
+        #"orbelems/cenx3.param",
+        #"orbelems/velax1.param",
+        #"orbelems/oao1657.param",
+        #"orbelems/gx301m2.param",
+        #
         "orbelems/rxj0520.param",
         "orbelems/4u0115.param",
         "orbelems/2s1553.param",
@@ -70,6 +77,7 @@ if __name__=="__main__" :
         "orbelems/gx304m1.param",
         "orbelems/xtej1946.param",
         "orbelems/groj1008.param",
+        #
         ]
 
     Omega = 0
