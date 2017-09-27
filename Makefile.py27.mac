@@ -1,0 +1,91 @@
+
+CXXSRCS    = keplerOrbit.cxx
+TARGET     = keplerOrbit
+INTERFACE  = keplerOrbit.i
+INTERFACEDIR = ./
+INCLUDES   =
+LIBS       = -lm
+
+
+SRCDIR_SRCS    = $(addprefix $(SRCDIR),$(SRCS))
+SRCDIR_CSRCS   = $(addprefix $(SRCDIR),$(CSRCS))
+SRCDIR_CXXSRCS = $(addprefix $(SRCDIR),$(CXXSRCS))
+
+INTERFACEPATH = $(INTERFACEDIR)$(INTERFACE)
+
+IWRAP      = $(INTERFACE:.i=_wrap.i)
+ISRCS      = $(IWRAP:.i=.c)
+ICXXSRCS   = $(IWRAP:.i=.cxx)
+IOBJS      = $(IWRAP:.i=.o)
+
+OBJS      = $(SRCS:.c=.o) $(CXXSRCS:.cxx=.o)
+
+LIBPREFIX  =
+
+
+SRCDIR_INCLUDE = -I.
+
+CC         = gcc
+CXX        = g++
+CPPFLAGS   = $(SRCDIR_INCLUDE)
+CFLAGS     = 
+CXXFLAGS   = -I/include/boost-0 
+LDFLAGS    =
+
+SO=		.bundle
+LDSHARED=	cc -bundle -undefined suppress -flat_namespace
+CCSHARED=	
+#CXXSHARED=      cc -bundle -undefined suppress -flat_namespace
+CXXSHARED= g++ -bundle -undefined suppress -flat_namespace
+
+
+SWIG       = swig
+#SWIGPYTHON = $(SWIG) -python
+
+PYTHON	        = python
+PYTHON_INCLUDE= -I/usr/include/python2.7 
+PYTHON_DLNK   = 
+PYTHON_LINK   = -lpython2.7
+PYTHON_SO     = .so
+SWIGOPTPY3    =
+
+
+
+all::	python_cpp
+
+clean:: python_clean
+	rm -f $(TARGET).py
+
+cleaner:: clean
+
+#check: all
+#	$(MAKE) -f Makefile.template.in python_run
+
+
+#python_cpp: 
+#	$(SWIGPYTHON) -c++ $(INTERFACEPATH)
+#	$(CXX) -c $(CCSHARED) $(CFLAGS) $(ICXXSRCS) $(SRCS) $(CXXSRCS) $(INCLUDES) $(PYTHON_INCLUDE)
+#	$(CXXSHARED) $(CFLAGS) $(OBJS) $(IOBJS) $(LIBS) -o $(LIBPREFIX)_$(TARGET)$(PYTHON_SO)
+
+python_cpp: $(SRCDIR_SRCS)
+	$(SWIG) -python $(SWIGOPTPY3) -c++ $(SWIGOPT) -o $(ICXXSRCS) $(INTERFACEPATH)
+	$(CXX) -c $(CCSHARED) $(CPPFLAGS) $(CXXFLAGS) $(ICXXSRCS) $(SRCDIR_SRCS) $(SRCDIR_CXXSRCS) $(INCLUDES) $(PYTHON_INCLUDE)
+	$(CXXSHARED) $(CXXFLAGS) $(LDFLAGS) $(OBJS) $(IOBJS) $(PYTHON_DLNK) $(LIBS) $(CPP_DLLIBS) -o $(LIBPREFIX)_$(TARGET)$(PYTHON_SO)
+
+python_clean:
+	rm -rf __pycache__
+	rm -f *_wrap* *~ .~* mypython *.pyc
+	rm -f core 
+	rm -f *.o *.bundle *$(PYTHON_SO)
+	rm -f $(TARGET).py
+
+
+#DEST_DIR = ${HOME}/pylib_${EXT}_ft$(FTOOLS_V)
+#DEST_DIR = ${MXSOFT}/pylib
+
+TARGET_FILES = lxdata.py _lxdata.so 
+
+install: all
+	if [ ! -d $(DEST_DIR) ]; then mkdir $(DEST_DIR); fi
+	install ${TARGET_FILES} $(DEST_DIR)
+
