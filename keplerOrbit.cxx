@@ -15,22 +15,41 @@ KeplerOrbit::~KeplerOrbit(){
 }
   
 int KeplerOrbit::setOrbitalElements(double a, double per, double ecc, double tau, double Omega, double w, double incl){
+
   m_a   = a;                    
   m_per = per;               
-  m_ecc = ecc;               
-  m_tau = tau;               
+  m_pdot = 0.0;               
+  m_ecc  = ecc;               
+  m_tau  = tau;               
   m_Omega = Omega*DEG2RAD;   
   m_w     = w*DEG2RAD;         
+  m_arate = 0.0;
   m_incl  = incl*DEG2RAD;     
   m_epochtype = EPOCH_TYPE_P; // default
   
-  m_nu = 2.0*M_PI/m_per;     
+  m_nu = 2.0*M_PI/m_per; // dafault
+  return 1;
+}
+    
+int KeplerOrbit::setOrbitalElements2(double a, double per, double pdot, double ecc, double tau, double Omega, double w, double arate, double incl){
 
+  m_a   = a;                    
+  m_per = per;               
+  m_pdot = pdot;               
+  m_ecc  = ecc;               
+  m_tau  = tau;               
+  m_Omega = Omega*DEG2RAD;   
+  m_w     = w*DEG2RAD;         
+  m_arate = arate;
+  m_incl  = incl*DEG2RAD;     
+  m_epochtype = EPOCH_TYPE_P; // default
+  
+  m_nu = 2.0*M_PI/m_per; // dafault
   return 1;
 }
     
 int KeplerOrbit::printOrbitalElements(){
-  std::cout << "axsini = " << m_a << std::endl;                    
+  std::cout << "ax             = " << m_a << std::endl;                    
   std::cout << "Orbital period = " << m_per    << std::endl;                    
   std::cout << "Eccentricity   = " << m_ecc    << std::endl;                    
   std::cout << "Epoch          = " << m_tau    << std::endl;                    
@@ -78,12 +97,45 @@ double KeplerOrbit::getEccentricAnomaly(double mjd){
 }
 
 double KeplerOrbit::meanAnomaly(double mjd){
-  //return m_nu*(t-m_tau); /// bug in ver 2015.09
+
+  double tau0, tau1, orbphase;
+  double nrevo;
+
+  /// calc orbital phase
+  nrevo = floor((mjd - m_tau)/m_per);
+  if(m_pdot==0.0){
+    tau0 = m_tau + nrevo*m_per;
+    orbphase = (mjd - tau0)/m_per;
+  } else {
+    while(1){
+      tau0 = m_tau + m_per*nrevo + 0.5*m_per*m_pdot*nrevo*nrevo;
+      tau1 = m_tau + m_per*(nrevo+1) + 0.5*m_per*m_pdot*(nrevo+1)*(nrevo+1);
+      
+      if(tau0 <= mjd && mjd < tau1){
+	break;
+      } else if(mjd < tau0){
+	nrevo-=1.0;
+      } else { //# per_t1 =< mjd
+	nrevo+=1.0;
+      }
+    }
+    orbphase = (mjd - tau0)/(tau1 - tau0);
+    m_nu =  2.0*M_PI/(tau1 - tau0);
+  }
+
+  if(m_epochtype==EPOCH_TYPE_T){
+    return 2*M_PI*(nrevo+orbphase)-m_w+M_PI/2.0; 
+  } else {
+    return 2*M_PI*(nrevo+orbphase); /// normal periastron epoch
+  }
+
+  /*			     
   if(m_epochtype==EPOCH_TYPE_T){
     return m_nu*(mjd-m_tau)-m_w+M_PI/2.0; 
   } else {
     return m_nu*(mjd-m_tau); /// normal periastron epoch
   }
+  */
 };
   
 double KeplerOrbit::radius(double mjd, double E_in){

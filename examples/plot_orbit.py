@@ -11,8 +11,8 @@ from keplerOrbit import KeplerOrbit
 from orbparlib import readfile_OrbitalElements
 
 #def get_orbitxyz(ax, porb, ecc, epoch, Omega, periapse, incl, epoch_type) :
-def get_orbitxyz(orbelem) :
-    ax, porb, ecc, epoch, Omega, periapse, incl, epoch_type = orbelem
+def get_orbitxyz(orbelem2) :
+    ax, porb, pdot, ecc, epoch, Omega, periapse, arate, incl, epoch_type = orbelem2
 
     mjd0_JD = 2400000.5 
     if mjd0_JD < epoch :
@@ -21,7 +21,8 @@ def get_orbitxyz(orbelem) :
         epoch_mjd = epoch 
 
     ko = KeplerOrbit()
-    ko.setOrbitalElements(ax, porb, ecc, epoch_mjd, Omega, periapse, incl);
+    #ko.setOrbitalElements(ax, porb, ecc, epoch_mjd, Omega, periapse, incl);
+    ko.setOrbitalElements2(ax, porb, pdot, ecc, epoch_mjd, Omega, periapse, arate, incl);
     if epoch_type==0 :
         ko.setEpochTypeP()
     else :
@@ -60,8 +61,8 @@ if __name__=="__main__" :
     parfname_list = [
         #"orbelems/herx1.param",
         #
-        #"orbelems/cenx3.param",
-        #"orbelems/velax1.param",
+        "orbelems/cenx3.param",
+        "orbelems/velax1.param",
         #"orbelems/oao1657.param",
         #"orbelems/gx301m2.param",
         #
@@ -94,10 +95,10 @@ if __name__=="__main__" :
         if not os.path.isfile(parfname) :
             continue
         par = readfile_OrbitalElements(parfname)
-        orbelem = (par[8], par[4], par[11], par[7], Omega, par[9], incl, par[6])
+        orbelem2 = (par[8], par[4], par[5], par[11], par[7], Omega, par[9], par[10], incl, par[6])
         target_name = par[0]
-        print target_name, orbelem
-        vx, vy, vz = get_orbitxyz(orbelem)
+        print target_name, orbelem2
+        vx, vy, vz = get_orbitxyz(orbelem2)
         
         #color_name = 'C%d'%(idx%10)
         linestyle_name = linestyle_list[idx/7]

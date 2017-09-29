@@ -15,10 +15,14 @@ class KeplerOrbit {
  private :
   double m_a;     // semi-major axis (l/c sec)    
   double m_per;	  // orbital period (day)
+  double m_pdot;  // derivative of orbital period (day/day)
+
   double m_ecc;	  // eccentricity		     
-  double m_tau;	  // time of periastron passage (MJD)
+  double m_tau;	  // epoch in MJD : time of periastron (P) or l=M+omega=Pi/2 (T)
   double m_Omega; // longitude of ascending node (rad)
   double m_w; 	  // argument of periastron (rad)
+
+  double m_arate; // Rate of change of arg. of periapse (deg/year)
   double m_incl;  // orbit inclination (rad)
   int    m_epochtype; // P=Periaston epoch, T=epoch of l=M+omega=Pi/2  
 
@@ -33,8 +37,10 @@ class KeplerOrbit {
  public:
   KeplerOrbit();
   virtual ~KeplerOrbit();
-  
+
   int setOrbitalElements(double a, double per, double ecc, double tau, double Omega, double w, double incl);
+  int setOrbitalElements2(double a, double per, double pdot, double ecc, double tau, double Omega, double w, double arate, double incl);
+
   int setEpochTypeP();
   int setEpochTypeT();
   int printOrbitalElements();
