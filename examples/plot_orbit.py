@@ -79,6 +79,7 @@ if __name__=="__main__" :
         "orbelems/xtej1946.param",
         "orbelems/groj1008.param",
         #
+        "orbelems/xper.param",
         ]
 
     Omega = 0
