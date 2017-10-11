@@ -56,12 +56,11 @@ if __name__=="__main__" :
     nv = len(vmjd)
     vdplr = np.zeros(nv)
     for idx in range(nv) :
-        mjd = vmjd[idx]
+        mjd = float(vmjd[idx])
 
         ###dplr = ko.getDopplerFactor(mjd)
 
         #dplr = ko.getDopplerFactor(mjd)-1
-        
         dplr = (1./ko.getDopplerFactor(mjd) -1)*836  ### X Per period
         #dplr = (1./ko.getDopplerFactor(mjd) -1)
 
