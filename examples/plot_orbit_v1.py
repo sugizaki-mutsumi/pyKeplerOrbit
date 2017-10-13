@@ -36,7 +36,7 @@ Omega=0.0
 incl =90.0
 
 ko = KeplerOrbit()
-ko.setOrbitalElements(axsini, pbinary, eccentricity, epoch_mjd, Omega, periapse, incl);
+ko.init_OrbitalElements(axsini, pbinary, eccentricity, epoch_mjd, Omega, periapse, incl);
 
 #mjd_start = 55050
 #mjd_end   = 56000

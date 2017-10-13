@@ -40,7 +40,7 @@ if __name__=="__main__" :
         epoch_mjd = epoch 
     
     ko = KeplerOrbit()
-    ko.setOrbitalElements2(ax, porb, pdot, ecc, epoch_mjd, Omega, periapse, arate, incl);
+    ko.init_OrbitalElements2(ax, porb, pdot, ecc, epoch_mjd, Omega, periapse, arate, incl);
     if epoch_type==0 :
         ko.setEpochTypeP()
     else :

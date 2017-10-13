@@ -21,8 +21,7 @@ def get_orbitxyz(orbelem2) :
         epoch_mjd = epoch 
 
     ko = KeplerOrbit()
-    #ko.setOrbitalElements(ax, porb, ecc, epoch_mjd, Omega, periapse, incl);
-    ko.setOrbitalElements2(ax, porb, pdot, ecc, epoch_mjd, Omega, periapse, arate, incl);
+    ko.init_OrbitalElements2(ax, porb, pdot, ecc, epoch_mjd, Omega, periapse, arate, incl);
     if epoch_type==0 :
         ko.setEpochTypeP()
     else :

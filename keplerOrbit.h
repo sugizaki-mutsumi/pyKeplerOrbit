@@ -38,9 +38,10 @@ class KeplerOrbit {
   KeplerOrbit();
   virtual ~KeplerOrbit();
 
-  int setOrbitalElements(double a, double per, double ecc, double tau, double Omega, double w, double incl);
-  int setOrbitalElements2(double a, double per, double pdot, double ecc, double tau, double Omega, double w, double arate, double incl);
+  int init_OrbitalElements(double a, double per, double ecc, double tau, double Omega, double w, double incl);
+  int init_OrbitalElements2(double a, double per, double pdot, double ecc, double tau, double Omega, double w, double arate, double incl);
 
+  int setOrbitalPeriod(double per);
   int setEpochTypeP();
   int setEpochTypeT();
   int printOrbitalElements();

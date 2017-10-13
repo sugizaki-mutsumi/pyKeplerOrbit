@@ -14,7 +14,7 @@ KeplerOrbit::KeplerOrbit(){
 KeplerOrbit::~KeplerOrbit(){
 }
   
-int KeplerOrbit::setOrbitalElements(double a, double per, double ecc, double tau, double Omega, double w, double incl){
+int KeplerOrbit::init_OrbitalElements(double a, double per, double ecc, double tau, double Omega, double w, double incl){
 
   m_a   = a;                    
   m_per = per;               
@@ -31,7 +31,7 @@ int KeplerOrbit::setOrbitalElements(double a, double per, double ecc, double tau
   return 1;
 }
     
-int KeplerOrbit::setOrbitalElements2(double a, double per, double pdot, double ecc, double tau, double Omega, double w, double arate, double incl){
+int KeplerOrbit::init_OrbitalElements2(double a, double per, double pdot, double ecc, double tau, double Omega, double w, double arate, double incl){
 
   m_a   = a;                    
   m_per = per;               
@@ -61,10 +61,16 @@ int KeplerOrbit::printOrbitalElements(){
   return 1;
 }
     
+int KeplerOrbit::setOrbitalPeriod(double per){
+  m_per = per; 
+  return 1;
+}
+
 int KeplerOrbit::setEpochTypeT(){
   m_epochtype = EPOCH_TYPE_T; /// default
   return 1;
 }
+
 int KeplerOrbit::setEpochTypeP(){
   m_epochtype = EPOCH_TYPE_P; /// default
   return 1;
