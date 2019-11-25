@@ -97,11 +97,12 @@ if __name__=="__main__" :
         par = readfile_OrbitalElements(parfname)
         orbelem2 = (par[8], par[4], par[5], par[11], par[7], Omega, par[9], par[10], incl, par[6])
         target_name = par[0]
-        print target_name, orbelem2
+        #print target_name, orbelem2
+        print (target_name, orbelem2)
         vx, vy, vz = get_orbitxyz(orbelem2)
         
         #color_name = 'C%d'%(idx%10)
-        linestyle_name = linestyle_list[idx/7]
+        linestyle_name = linestyle_list[int(idx/7)]
         
         #plt.plot(vx, vy, ls=linestyle_name, label=target_name)
         plt.plot(vx, vz, ls=linestyle_name, label=target_name)

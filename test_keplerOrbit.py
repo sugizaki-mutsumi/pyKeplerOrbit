@@ -23,7 +23,8 @@ epoch_mjd = binaryepoch - 2400000.5
 Omega=0.0
 incl =90.0
 ko = KeplerOrbit()
-ko.setOrbitalElements(axsini, pbinary, eccentricity, epoch_mjd, Omega, periapse,incl);
+#ko.setOrbitalElements(axsini, pbinary, eccentricity, epoch_mjd, Omega, periapse,incl);
+ko.init_OrbitalElements(axsini, pbinary, eccentricity, epoch_mjd, Omega, periapse,incl);
 
 mjd_start = 55050
 mjd_end   = 56000
@@ -32,6 +33,6 @@ mjd_step  = 1
 mjd = mjd_start
 while mjd<mjd_end :
     dopplerfact = ko.getDopplerFactor(mjd)
-    print mjd, dopplerfact
+    print(mjd, dopplerfact)
     mjd+=mjd_step
 
